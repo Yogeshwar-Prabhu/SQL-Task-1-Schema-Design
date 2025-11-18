@@ -1,13 +1,15 @@
--- Task 1 SQL Schema File
+-- Create Database
 CREATE DATABASE library_db;
 USE library_db;
 
+-- Table: Authors
 CREATE TABLE authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     country VARCHAR(50)
 );
 
+-- Table: Books
 CREATE TABLE books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(150) NOT NULL,
@@ -17,6 +19,7 @@ CREATE TABLE books (
     FOREIGN KEY (author_id) REFERENCES authors(author_id)
 );
 
+-- Table: Members
 CREATE TABLE members (
     member_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
@@ -24,6 +27,7 @@ CREATE TABLE members (
     joined_date DATE
 );
 
+-- Table: Borrowed Books
 CREATE TABLE borrowed_books (
     borrow_id INT AUTO_INCREMENT PRIMARY KEY,
     member_id INT,
